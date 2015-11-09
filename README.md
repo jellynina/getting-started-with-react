@@ -62,17 +62,85 @@ React.renderComponent(
 )
 ```
 
-2015.11.05: 上完2-2
+
+# States Managing
+
+1. State overview
+2. What kind of data do we store in state
+3. Reconciliation
+4. Never call state
+
+>**Note**: 只改變`state`變數，是不會re-render的
+
+```js
+  var MessageBox = React.createClass({
+
+    getInitialState: function () {
+      return {
+        isVisible: true,
+        titleMessage: 'Hello, World'
+      }
+    },
+
+    render: function() {
+
+      var inlineStyle = {
+        display: this.state.isVisible ? 'block' : 'none'
+      };
+
+      return (
+        <div className="container jumbotron" style={inlineStyle}>
+          <h2>{ this.state.titleMessage }</h2>
+
+          <SubMessage />
+        </div>
+      );
+    }
+  });
+```
+
+啟動rerendering:`reactComponent`.
 
 
+```js
+reactComponent.setState({
+  isVisible: false
+});
+
+// 這邊啟動setState都是在瀏覽器console裡面
+```
+
+# props
+
+跟states一樣，套入了state machine 的概念
+
+* `2.4` files
+* `MessageBox` is the owner of `SubMessage`
+
+> 這一節看不懂
+
+使用`map`製作message替換
+
+```js
+  var messages = this.state.messages.map(function(message) {
+    return <SubMessage message={message} />
+  });
+```
 
 
+執行替換：create new array for 
+
+```js
+
+var newMessagesArray =reactComponent.state.messages.concat("New Item!");
+// 在原有的message陣列再加上一個"New Item!"項目
+
+reactComponent.setState({
+  messages: newMessagesArray
+  });
 
 
+```
 
 
-
-
-
-
-
+2015-11-09 上完2-4
