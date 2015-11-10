@@ -143,4 +143,33 @@ reactComponent.setState({
 ```
 
 
-2015-11-09 上完2-4
+# Events
+
+> 2.5-events
+
+```js
+return (
+  <div className="container jumbotron" style={inlineStyles}>
+    <h2>Hello, World</h2>
+    <button onClick={this.handleAdd} className="btn btn-primary">Add</button>
+    { messages }
+  </div>
+);
+```
+
+注意在`jsx`中attribute都是用`camelcase`
+
+這邊說`onClick`不是真的放在`<button>`上面**（？）**
+
+然後他們符合w3c的標準
+
+> 我這邊真的聽不太懂
+
+
+```js
+    handleAdd: function(e) {
+      console.log(e); //Synthetic Events
+      console.log(e.target); // console 這個button物件
+      console.log(this); // constructor
+    },
+```
