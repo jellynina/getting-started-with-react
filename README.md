@@ -173,3 +173,45 @@ return (
       console.log(this); // constructor
     },
 ```
+
+
+
+
+# Using Refs
+
+因為`React`做出來的都只是blueprints, 不是真的DOM node. 所以要抓取數值的時候
+
+```js
+return (
+  <div className="container jumbotron" style={inlineStyles}>
+    <h2>Hello, World</h2>
+    <div className="form-group">
+      <input ref="newMessage" type="text" className="form-control" />
+      <button onClick={this.handleAdd} className="btn btn-primary">Add</button>
+    </div>
+    { messages }
+  </div>
+);
+```
+
+
+```js
+<input ref="newMessage" type="text" className="form-control" />
+```
+
+先設定`ref="newMessage"`
+然後在handleA
+
+```js
+handleAdd: function(e) {
+  console.log(this);
+  var newMessage = this.refs.newMessage.getDOMNode().value;
+  var newMessages = this.state.messages.concat([newMessage]);
+  this.setState({
+    messages: newMessages
+  });
+},
+```
+
+
+
