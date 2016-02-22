@@ -24,3 +24,6 @@ webpack -w
 ## 為什麼需要`react-dom` ?
 
 一般`createClass`出來的`component`是在`server side`跑完的，所以是`virtual DOM`, 而用`react-dom`可以把`component`在`clinet side`出現真的DOM.
+
+
+## React Router
