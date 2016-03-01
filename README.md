@@ -27,3 +27,48 @@ webpack -w
 
 
 ## React Router
+```
+npm install react-router --save-dev
+```
+
+
+```js
+var Route = Router.Route;
+var IndexRoute = Router.IndexRoute;
+```
+
+```js
+
+module.exports = (
+  <Route path="/" component={Main}>
+    /* child route */
+    <IndexRoute component={Home} />
+  </Route>
+);
+
+```
+
+## State, Props, and Thinking in React
+
+```js
+var Profile = React.createClass({
+  getInitialState: function() {
+    return {
+      notes: [],
+      bio: {},
+      repos: []
+    }
+  },
+```
+
+
+
+`this.props`
+
+***
+
+# 疑難雜症
+
+* why webpack
+* how to intergrade with web server?
+* intergrade with SASS and gulp?
